@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miguel Sánchez Godoy | Portafolio</title>
+  
+  <!-- ETIQUETAS OPEN GRAPH PARA LINKEDIN -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tu-usuario.github.io/">
+  <meta property="og:title" content="Miguel Sánchez Godoy | Portfolio">
+  <meta property="og:description" content="Especialista en Marketing Digital & Desarrollo Web | SEO, E-commerce y Estrategias Multicanal.">
+  <!-- Cambia 'foto.jpg' por la URL completa de tu imagen en GitHub si es necesario -->
+  <meta property="og:image" content="https://tu-usuario.github.io/foto.jpg">
+
   <style>
     /* RESET & ESTILOS GLOBALES */
     * {
@@ -73,7 +82,7 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: center;
     }
 
@@ -87,6 +96,34 @@
 
     nav a:hover {
       color: #000;
+    }
+
+    /* BOTÓN CAMBIO DE IDIOMA EN | ES */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background-color: #e0e0e0;
+      padding: 0.3rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #777;
+      font-weight: 700;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      color: #ffffff;
+      background-color: #1a1a1a;
     }
 
     .btn-contact {
@@ -331,7 +368,7 @@
       background-color: #1a1a1a;
     }
 
-    /* --- SECCIÓN 4: PROYECTOS (WEBS & MARKETING) --- */
+    /* --- SECCIÓN 4: PROYECTOS --- */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -415,6 +452,14 @@
       max-width: 900px;
     }
 
+    /* FOOTER INTEGRADO */
+    footer {
+      padding: 3rem 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -460,18 +505,12 @@
       color: #666;
     }
 
-    /* FOOTER INTEGRADO */
-    footer {
-      padding: 3rem 4rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
     /* RESPONSIVIDAD MÓVIL */
     @media (max-width: 950px) {
       header {
         padding: 1.5rem 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
       section {
         padding: 3rem 2rem;
@@ -493,6 +532,7 @@
       }
       nav ul {
         gap: 1rem;
+        flex-wrap: wrap;
       }
       .marketing-showcase {
         padding: 1.5rem;
@@ -511,11 +551,18 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
-          <li><a href="#habilidades">Habilidades</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="mailto:miguisgodoy@gmail.com" class="btn-contact">Contacto</a></li>
+          <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+          <li><a href="#sobre-mi" data-es="Sobre mí" data-en="About me">Sobre mí</a></li>
+          <li><a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
+          <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+          <li>
+            <div class="lang-switch">
+              <button class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+              <span>|</span>
+              <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+            </div>
+          </li>
+          <li><a href="mailto:miguisgodoy@gmail.com" class="btn-contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
         </ul>
       </nav>
     </header>
@@ -525,7 +572,7 @@
       <div class="hero-text">
         <h1>Miguel<br>Sánchez Godoy</h1>
         <p class="hero-description">
-          — <span class="highlight-box">Especialista en Marketing Digital</span> & Desarrollo Web, enfocado en SEO/GEO, E-commerce y estrategias masivas multicanal orientadas a resultados.
+          — <span class="highlight-box" data-es="Especialista en Marketing Digital" data-en="Digital Marketing Specialist">Especialista en Marketing Digital</span> <span data-es="& Desarrollo Web, enfocado en SEO/GEO, E-commerce y estrategias masivas multicanal orientadas a resultados." data-en="& Web Development, focused on SEO/GEO, E-commerce, and result-oriented multichannel mass strategies.">& Desarrollo Web, enfocado en SEO/GEO, E-commerce y estrategias masivas multicanal orientadas a resultados.</span>
         </p>
       </div>
 
@@ -546,26 +593,26 @@
 
     <!-- 2. SOBRE MÍ -->
     <section id="sobre-mi">
-      <h2 class="section-title">Sobre mí</h2>
+      <h2 class="section-title" data-es="Sobre mí" data-en="About me">Sobre mí</h2>
       <div class="about-text">
-        <p>
+        <p data-es="Antes de continuar mis estudios en el extranjero, realicé mis prácticas profesionales en Empiresystems y Enova Studios, donde desempeñé diversas funciones relacionadas con el marketing digital y el desarrollo web. Entre mis principales responsabilidades se incluyeron la gestión de redes sociales, la creación y mantenimiento de páginas web, la detección y corrección de errores en sitios existentes, la optimización SEO y SEM, el análisis de palabras clave y la promoción del programa Kit Digital para empresas. Estas experiencias me permitieron aplicar mis conocimientos en entornos reales, fortalecer mis competencias técnicas y desarrollar una visión estratégica del marketing online." data-en="Before continuing my studies abroad, I completed my professional internships at Empiresystems and Enova Studios, where I performed various functions related to digital marketing and web development. My main responsibilities included social media management, website creation and maintenance, error detection and resolution on existing sites, SEO and SEM optimization, keyword analysis, and promoting the Kit Digital program for companies. These experiences allowed me to apply my knowledge in real environments, strengthen my technical skills, and develop a strategic vision of online marketing.">
           Antes de continuar mis estudios en el extranjero, realicé mis prácticas profesionales en Empiresystems y Enova Studios, donde desempeñé diversas funciones relacionadas con el marketing digital y el desarrollo web. Entre mis principales responsabilidades se incluyeron la gestión de redes sociales, la creación y mantenimiento de páginas web, la detección y corrección de errores en sitios existentes, la optimización SEO y SEM, el análisis de palabras clave y la promoción del programa Kit Digital para empresas. Estas experiencias me permitieron aplicar mis conocimientos en entornos reales, fortalecer mis competencias técnicas y desarrollar una visión estratégica del marketing online.
         </p>
-        <p>
+        <p data-es="Mi interés y dedicación me llevaron posteriormente a dar un paso más y viajar a Inglaterra para continuar mis estudios y vivir una experiencia internacional. Allí no solo adquirí nuevos conocimientos académicos, sino también una visión más amplia del marketing global. Aprendí a adaptarme a diferentes contextos culturales y reforcé habilidades como la comunicación y el trabajo en equipo en entornos diversos." data-en="My interest and dedication subsequently led me to take a step further and travel to England to continue my studies and gain an international experience. There, I not only acquired new academic knowledge, but also a broader vision of global marketing. I learned to adapt to different cultural contexts and strengthened skills such as communication and teamwork in diverse environments.">
           Mi interés y dedicación me llevaron posteriormente a dar un paso más y viajar a Inglaterra para continuar mis estudios y vivir una experiencia internacional. Allí no solo adquirí nuevos conocimientos académicos, sino también una visión más amplia del marketing global. Aprendí a adaptarme a diferentes contextos culturales y reforcé habilidades como la comunicación y el trabajo en equipo en entornos diversos.
         </p>
-        <p>
+        <p data-es="Tras mi etapa en Inglaterra, me incorporé al equipo de marketing de Satocan, donde perfeccioné mis competencias en desarrollo web mediante diversas tecnologías y herramientas como WordPress o Lovable. Asimismo, fortalecí mis habilidades en email marketing y comunicación masiva multicanal (Mailchimp y WhatsApp Marketing), la gestión estratégica de redes sociales para una gran compañía, el uso avanzado de hojas de cálculo (Excel), diseño con Canva e integración de herramientas de Inteligencia Artificial en los procesos diarios." data-en="After my time in England, I joined the marketing team at Satocan, where I perfected my web development skills through various technologies and tools such as WordPress or Lovable. Likewise, I strengthened my skills in email marketing and multichannel mass communication (Mailchimp and WhatsApp Marketing), strategic social media management for a large corporation, advanced spreadsheet usage (Excel), design with Canva, and the integration of Artificial Intelligence tools into daily processes.">
           Tras mi etapa en Inglaterra, me incorporé al equipo de marketing de Satocan, donde perfeccioné mis competencias en desarrollo web mediante diversas tecnologías y herramientas como WordPress o Lovable. Asimismo, fortalecí mis habilidades en email marketing y comunicación masiva multicanal (Mailchimp y WhatsApp Marketing), la gestión estratégica de redes sociales para una gran compañía, el uso avanzado de hojas de cálculo (Excel), diseño con Canva e integración de herramientas de Inteligencia Artificial en los procesos diarios.
         </p>
       </div>
 
       <div class="timeline">
         <div class="timeline-card">
-          <h3>Técnico Superior en Marketing y Publicidad</h3>
+          <h3 data-es="Técnico Superior en Marketing y Publicidad" data-en="Higher National Diploma in Marketing and Advertising">Técnico Superior en Marketing y Publicidad</h3>
           <span>ICSE (2022 - 2024)</span>
         </div>
         <div class="timeline-card">
-          <h3>Graduado en Marketing (BA Hons)</h3>
+          <h3 data-es="Graduado en Marketing (BA Hons)" data-en="BA (Hons) Marketing Graduate">Graduado en Marketing (BA Hons)</h3>
           <span>York St John University (2024 - 2025)</span>
         </div>
       </div>
@@ -573,29 +620,29 @@
 
     <!-- 3. HABILIDADES -->
     <section id="habilidades">
-      <h2 class="section-title">Habilidades & Aptitudes</h2>
+      <h2 class="section-title" data-es="Habilidades & Aptitudes" data-en="Skills & Abilities">Habilidades & Aptitudes</h2>
       <div class="skills-grid">
         
         <!-- HABILIDADES PERSONALES -->
         <div class="skills-block">
-          <h3>HABILIDADES</h3>
+          <h3 data-es="HABILIDADES" data-en="SOFT SKILLS">HABILIDADES</h3>
           <ul class="skills-list">
-            <li>Creatividad</li>
-            <li>Iniciativa</li>
-            <li>Empatía</li>
-            <li>Autocrítica</li>
-            <li>Resolución de problemas</li>
-            <li>Compromiso</li>
-            <li>Trabajo en equipo</li>
+            <li data-es="Creatividad" data-en="Creativity">Creatividad</li>
+            <li data-es="Iniciativa" data-en="Initiative">Iniciativa</li>
+            <li data-es="Empatía" data-en="Empathy">Empatía</li>
+            <li data-es="Autocrítica" data-en="Self-criticism">Autocrítica</li>
+            <li data-es="Resolución de problemas" data-en="Problem solving">Resolución de problemas</li>
+            <li data-es="Compromiso" data-en="Commitment">Compromiso</li>
+            <li data-es="Trabajo en equipo" data-en="Teamwork">Trabajo en equipo</li>
           </ul>
         </div>
 
         <!-- IDIOMAS -->
         <div class="skills-block">
-          <h3>IDIOMAS</h3>
+          <h3 data-es="IDIOMAS" data-en="LANGUAGES">IDIOMAS</h3>
           <ul class="skills-list">
-            <li>Inglés</li>
-            <li>Español</li>
+            <li data-es="Inglés" data-en="English">Inglés</li>
+            <li data-es="Español" data-en="Spanish">Español</li>
           </ul>
         </div>
 
@@ -637,7 +684,7 @@
             </li>
             <li>
               <div class="skill-item-content">
-                <span>Creación web</span>
+                <span data-es="Creación web" data-en="Web Development">Creación web</span>
                 <div class="squares-rating">
                   <div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div><div class="sq"></div>
                 </div>
@@ -651,42 +698,42 @@
 
     <!-- 4. PROYECTOS -->
     <section id="proyectos">
-      <h2 class="section-title">Proyectos Destacados</h2>
+      <h2 class="section-title" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
       
       <!-- DESARROLLO WEB -->
       <div class="projects-grid">
         <a href="https://www.grupotambara.com/" target="_blank" class="project-card">
           <div>
             <h3>Grupo Tambara</h3>
-            <p>Desarrollo web empresarial enfocado en la presentación corporativa y optimización de marca.</p>
+            <p data-es="Desarrollo web empresarial enfocado en la presentación corporativa y optimización de marca." data-en="Corporate web development focused on business presentation and brand optimization.">Desarrollo web empresarial enfocado en la presentación corporativa y optimización de marca.</p>
           </div>
-          <span class="project-link">Visitar sitio ↗</span>
+          <span class="project-link" data-es="Visitar sitio ↗" data-en="Visit website ↗">Visitar sitio ↗</span>
         </a>
 
         <a href="https://www.caminoscanarias.org/" target="_blank" class="project-card">
           <div>
             <h3>Caminos Canarias</h3>
-            <p>Plataforma e institucional orientada al sector de la ingeniería e infraestructuras regionales.</p>
+            <p data-es="Plataforma e institucional orientada al sector de la ingeniería e infraestructuras regionales." data-en="Institutional platform oriented to the regional engineering and infrastructure sector.">Plataforma e institucional orientada al sector de la ingeniería e infraestructuras regionales.</p>
           </div>
-          <span class="project-link">Visitar sitio ↗</span>
+          <span class="project-link" data-es="Visitar sitio ↗" data-en="Visit website ↗">Visitar sitio ↗</span>
         </a>
 
         <a href="https://www.catedrajuanmiguelsanjuan.org/" target="_blank" class="project-card">
           <div>
             <h3>Cátedra Juan Miguel Sanjuán</h3>
-            <p>Sitio web académico e institucional enfocado en la divulgación y gestión de contenidos.</p>
+            <p data-es="Sitio web académico e institucional enfocado en la divulgación y gestión de contenidos." data-en="Academic and institutional website focused on dissemination and content management.">Sitio web académico e institucional enfocado en la divulgación y gestión de contenidos.</p>
           </div>
-          <span class="project-link">Visitar sitio ↗</span>
+          <span class="project-link" data-es="Visitar sitio ↗" data-en="Visit website ↗">Visitar sitio ↗</span>
         </a>
       </div>
 
       <!-- EMAIL & WHATSAPP MARKETING -->
       <div class="marketing-showcase">
         <div class="marketing-header">
-          <span class="marketing-badge">Especialidad Multicanal</span>
-          <h3>Email & WhatsApp Marketing (Avanzado)</h3>
-          <p class="marketing-desc">
-            Uso a la perfección ambas herramientas tanto a nivel técnico como estratégico. Domino la configuración e integración directa a través de la <strong>WhatsApp Cloud API</strong> (gestión de plantillas de mensajes, catálogo y configuración de cuenta) así como campañas masivas automatizadas y newsletters mediante <strong>Mailchimp</strong>.
+          <span class="marketing-badge" data-es="Especialidad Multicanal" data-en="Multichannel Specialty">Especialidad Multicanal</span>
+          <h3 data-es="Email & WhatsApp Marketing (Avanzado)" data-en="Email & WhatsApp Marketing (Advanced)">Email & WhatsApp Marketing (Avanzado)</h3>
+          <p class="marketing-desc" data-es="Uso a la perfección ambas herramientas tanto a nivel técnico como estratégico. Domino la configuración e integración directa a través de la WhatsApp Cloud API (gestión de plantillas de mensajes, catálogo y configuración de cuenta) así como campañas masivas automatizadas y newsletters mediante Mailchimp." data-en="I master both tools technically and strategically. Expert in direct setup and integration via the WhatsApp Cloud API (message templates, catalogs, and account setup) as well as automated bulk campaigns and newsletters through Mailchimp.">
+            Uso a la perfección ambas herramientas tanto a nivel técnico como estratégico. Domino la configuración e integración directa a través de la WhatsApp Cloud API (gestión de plantillas de mensajes, catálogo y configuración de cuenta) así como campañas masivas automatizadas y newsletters mediante Mailchimp.
           </p>
         </div>
 
@@ -698,7 +745,7 @@
             </div>
             <div class="gallery-info">
               <h4>WhatsApp Cloud API</h4>
-              <p>Administración de plantillas de mensajes, catálogos y límites de envío en la plataforma oficial.</p>
+              <p data-es="Administración de plantillas de mensajes, catálogos y límites de envío en la plataforma oficial." data-en="Management of message templates, catalogs, and messaging limits on the official platform.">Administración de plantillas de mensajes, catálogos y límites de envío en la plataforma oficial.</p>
             </div>
           </div>
 
@@ -709,7 +756,7 @@
             </div>
             <div class="gallery-info">
               <h4>Mailchimp - Newsletter</h4>
-              <p>Diseño de maquetación HTML responsiva para divulgación de artículos y tramos históricos.</p>
+              <p data-es="Diseño de maquetación HTML responsiva para divulgación de artículos y tramos históricos." data-en="Responsive HTML layout design for article dissemination and historical updates.">Diseño de maquetación HTML responsiva para divulgación de artículos y tramos históricos.</p>
             </div>
           </div>
 
@@ -720,7 +767,7 @@
             </div>
             <div class="gallery-info">
               <h4>Mailchimp - Comunicados</h4>
-              <p>Estructuración de comunicados masivos con integraciones a canales directos y política de bajas.</p>
+              <p data-es="Estructuración de comunicados masivos con integraciones a canales directos y política de bajas." data-en="Structuring of broadcast communications with direct channel integrations and opt-out policies.">Estructuración de comunicados masivos con integraciones a canales directos y política de bajas.</p>
             </div>
           </div>
 
@@ -730,8 +777,8 @@
               <img src="wa-app-1.png" alt="Vista final WhatsApp Chat">
             </div>
             <div class="gallery-info">
-              <h4>WhatsApp - Entregabilidad Chat</h4>
-              <p>Resultado final recibido por los usuarios con llamadas a la acción directas hacia la web.</p>
+              <h4 data-es="WhatsApp - Entregabilidad Chat" data-en="WhatsApp - Chat Deliverability">WhatsApp - Entregabilidad Chat</h4>
+              <p data-es="Resultado final recibido por los usuarios con llamadas a la acción directas hacia la web." data-en="Final result received by users with direct calls to action leading to the website.">Resultado final recibido por los usuarios con llamadas a la acción directas hacia la web.</p>
             </div>
           </div>
         </div>
@@ -741,9 +788,38 @@
 
     <!-- FOOTER -->
     <footer>
-      <p>© 2026 Miguel Sánchez Godoy. Todos los derechos reservados.</p>
+      <p data-es="© 2026 Miguel Sánchez Godoy. Todos los derechos reservados." data-en="© 2026 Miguel Sánchez Godoy. All rights reserved.">© 2026 Miguel Sánchez Godoy. Todos los derechos reservados.</p>
     </footer>
   </div>
+
+  <!-- SCRIPT PARA CAMBIAR EL IDIOMA -->
+  <script>
+    function switchLang(lang) {
+      // Guardar el idioma seleccionado
+      localStorage.setItem('preferred_lang', lang);
+
+      // Cambiar estado de botones
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      // Actualizar atributo lang en html
+      document.documentElement.lang = lang;
+
+      // Buscar todos los elementos con atributos de idioma y cambiarlos
+      const elements = document.querySelectorAll('[data-es][data-en]');
+      elements.forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    }
+
+    // Cargar idioma guardado si existe
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred_lang') || 'es';
+      if (savedLang === 'en') {
+        switchLang('en');
+      }
+    });
+  </script>
 
 </body>
 </html>
